@@ -5,7 +5,7 @@
 <template>
 <main>
     <div class="btn-notes">
-<button><RouterLink to="/About">Boletín de Notas</RouterLink></button>
+        <RouterLink to="/About"><button>Boletín de Notas</button></RouterLink>
     </div>
 </main>
 </template>
@@ -24,6 +24,7 @@ main {
           width: 151px;
           height: 33px;
           background: rgb(217, 217, 217);
+          border: none;
         }
     }
 }
