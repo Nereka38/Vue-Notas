@@ -1,5 +1,7 @@
 <script setup>
 import Notes from '../components/Notes.vue';
+// import NotePage from '../components/NotePage.vue';
+
 
 </script>
 

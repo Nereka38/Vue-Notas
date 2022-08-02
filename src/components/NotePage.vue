@@ -1,44 +1,17 @@
-<script>
-  import { ref } from "vue";
-  import { useNote } from '../stores/notes'
-
-export default {
-  setup() {
-    const todo = ref("");
-    const store = useNote();
-    function addItem(item) {
-      if (item.length === 0) {
-        store.inputAlert();
-        return;
-      }
-      store.add(item);
-      todo.value = "";
-    }
-    return { todo, addItem };
-    }
-}
+<script setup>
+import Notes from "./Notes.vue";
+import Results from "./Results.vue";
 
 </script>
 
 <template>
 <main>
-    <aside class="info-student">
-        <form @submit.prevent="addItem(todo)">
-        <h1>Nombre del alumno</h1>
-        <input v-model="todo" type="text">
-        <h1>Materias</h1>
-        <input  v-model="signature" type="text">
-        <h1>Nota</h1>
-        <input  v-model="note" type="text">
-        <div>
-        <button type="submit">Añadir</button>
-        </div>
-        </form>
-    </aside>
+<Notes />
+<Results />
 </main>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 main {
     display:flex;
     justify-content: space-evenly;
