@@ -1,13 +1,11 @@
 <script setup>
-import Notes from '../components/Notes.vue';
-// import NotePage from '../components/NotePage.vue';
-
+import NotePage from '../components/NotePage.vue';
 
 </script>
 
 <template>
   <div class="Boletin">
-    <Notes />
+    <NotePage />
   </div>
 </template>
 

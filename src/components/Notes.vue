@@ -4,17 +4,22 @@
 
 export default {
   setup() {
-    const todo = ref("");
+    const all = ref("");
     const store = useNote();
-    function addItem(item) {
-      if (item.length === 0) {
-        store.inputAlert();
+    function addItems(name, signature, note) {
+      if (name.length === 0) {
         return;
       }
-      store.add(item);
-      todo.value = "";
+      if (signature.length === 0) {
+        return;
+      }
+      if (note.length === 0) {
+        return;
+      }
+      store.add(name, signature, note);
+      all.value = "";
     }
-    return { todo, addItem };
+    return { all, addItems };
     }
 }
 
@@ -23,16 +28,20 @@ export default {
 <template>
 <main>
     <aside class="info-student">
-        <form @submit.prevent="addItem(todo)">
-        <h1>Nombre del alumno</h1>
-        <input v-model="todo" type="text">
-        <h1>Materias</h1>
-        <input  v-model="signature" type="text">
-        <h1>Nota</h1>
-        <input  v-model="note" type="text">
-        <div>
-        <button type="submit">Añadir</button>
-        </div>
+        <form @submit.prevent="addItems(name, signature, note)">
+            <h1>Nombre del alumno</h1>
+                <input v-model="name" type="text">
+            <h1>Materias</h1>
+                <select v-model="signature">
+                    <option>Matemáticas</option>
+                    <option>Lengua</option>
+                    <option>Inglés</option>
+                </select>
+            <h1>Nota</h1>
+                <input v-model="note" type="text">
+            <div>
+                <button type="submit">Añadir</button>
+            </div>
         </form>
     </aside>
 </main>

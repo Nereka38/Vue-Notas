@@ -6,8 +6,8 @@ export const useNote = defineStore('studentinfo',{
       id:0,
     }),
     actions: {
-      add(item) {
-        this.studentinfo.push({ item, id: this.id++, completed: false });
+      add(name, signature, note) {
+        this.studentinfo.push({ name, signature, note, id: this.id++ });
       },
     },
   })
